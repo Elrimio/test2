@@ -37,8 +37,8 @@ jobs:
     - name: Test with pytest and coverage
       run: |
         pytest --cov=matrix --cov=test_matrix_operations
-    - name: Report coverage to Coveralls
-      env:
-        GITHUB_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      run: |
-        coveralls
+    - name: Upload coverage to Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: coveralls
